@@ -11,6 +11,8 @@ func main() {
 	list.AddItem(5)
 
 	list.RemoveItem(3)
+	list.RemoveItem(1)
+	list.RemoveItem(5)
 	list.AddItem(3)
 	spew.Dump(list)
 }

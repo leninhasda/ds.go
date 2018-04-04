@@ -36,14 +36,20 @@ func (l *LinkedList) RemoveItem(d int) {
 		return
 	}
 
+	var prev *node
 	cur := l.root
-	pre := l.root
-	for cur.next != nil {
+	for cur != nil {
 		if d == cur.data {
-			pre.next = cur.next
+			// cur is first item so update root
+			if prev == nil {
+				l.root = cur.next
+			} else {
+				prev.next = cur.next
+			}
+			cur = nil
 			break
 		}
-		pre = cur
+		prev = cur
 		cur = cur.next
 	}
 }
